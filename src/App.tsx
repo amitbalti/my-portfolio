@@ -1,26 +1,61 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import Navbar from "./Components/NavBar";
+import About from "./Components/About";
+import Projects from "./Components/Projects";
+import Page404 from "./Components/Page404";
+import Home from "./Components/Home";
+import ProjectPage from "./Components/ProjectPage";
+import "./styles.css";
 
-function App() {
+type Project = {
+  id: number;
+  title: string;
+  desc: string;
+  image: string;
+};
+
+const App: React.FC = () => {
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("/projects.json")
+      .then((response) => response.json())
+      .then((data) => {
+        setProjects(data);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About showButton={false} />} />
+        <Route path="/projects" element={<Projects showButton={false} />} />
+        {projects.map((project) => (
+          <Route
+            key={project.id}
+            path={`/project${project.id}`}
+            element={
+              <ProjectPage
+                title={project.title}
+                desc={project.desc}
+                image={project.image}
+              />
+            }
+          />
+        ))}
+        <Route path="*" element={<Page404 />} />
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;

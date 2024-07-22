@@ -1,0 +1,185 @@
+/* General Body and HTML settings */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #000; /* Black background */
+  color: #fff; /* White text */
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto; /* Ensure vertical scrolling */
+}
+
+/* Navbar styling */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  z-index: 1000;
+  padding: 10px 0;
+}
+
+.navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar li {
+  margin: 0 15px;
+}
+
+.navbar a {
+  color: #ff69b4;
+  text-decoration: none;
+  padding: 10px 15px;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.navbar a:hover {
+  color: #da70d6;
+}
+
+/* Section styling */
+.section {
+  padding: 100px 20px; /* Top and bottom padding adjusted */
+  min-height: 100vh; /* Ensures each section fills the viewport */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Remove the negative margin and adjust padding */
+#about,
+#projects {
+  padding-top: 60px; /* Ensure enough space below the navbar */
+  padding-bottom: 60px; /* Optional: Adds padding below the content */
+  margin-top: 0; /* Removes negative margin */
+}
+
+#about {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Fine white line with low opacity */
+  /* margin-bottom: 50px; Optional: Adds space between the About and Projects sections */
+}
+
+#projects {
+  padding-top: 50px; /* Optional: Adds padding at the top of the Projects section */
+}
+
+/* Project section */
+.project-container {
+  width: 100%;
+  display: flex;
+  /* margin-top: 60px; Increase space at the top of the project container */
+  flex-wrap: wrap; /* Allows project items to wrap on smaller screens */
+  justify-content: space-around;
+  gap: 20px; /* Adds space between project items */
+}
+
+.project {
+  position: relative;
+  width: 30%; /* Adjust based on your design preference */
+  margin-top: 40px; /* Increased space above each project to prevent overlap */
+  transition: transform 0.3s ease-in-out;
+}
+
+.project:hover {
+  transform: translateY(
+    -10px
+  ); /* Slightly raises the project on hover for emphasis */
+}
+
+.project img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.5s ease;
+}
+
+.project:hover img {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7); /* Dark overlay for better readability */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.project:hover .overlay {
+  opacity: 1;
+}
+
+.project-desc {
+  margin-bottom: 20px;
+}
+
+.project-cta {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Base styles for all projects */
+.project-page {
+  padding: 80px 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #222; /* Uniform dark background for all project pages */
+  color: #fff;
+  text-align: center;
+  box-shadow: 0px 0px 10px 0px rgba(255, 105, 180, 0.7); /* Subtle pink glow for some depth */
+}
+
+/* Specific styles for Project1 */
+#project1 {
+  border: 2px solid #da70d6; /* Orchid border for Project1 */
+}
+
+/* Specific styles for Project2 */
+#project2 {
+  border: 2px solid #5c5cd6; /* Deep blue border for Project2 */
+}
+
+/* Specific styles for Project3 */
+#project3 {
+  border: 2px solid #33cc73; /* Dark green border for Project3 */
+}
+
+h1,
+p {
+  color: #fff;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #ff69b4;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #da70d6;
+}
