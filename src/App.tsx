@@ -13,6 +13,7 @@ type Project = {
   title: string;
   desc: string;
   image: string;
+  url?: string;
 };
 
 const App: React.FC = () => {
@@ -48,6 +49,7 @@ const App: React.FC = () => {
                 title={project.title}
                 desc={project.desc}
                 image={project.image}
+                url={project.url}
               />
             }
           />

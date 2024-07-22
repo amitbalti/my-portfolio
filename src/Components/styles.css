@@ -97,10 +97,22 @@ html {
   ); /* Slightly raises the project on hover for emphasis */
 }
 
+/* Home Page Project Images */
 .project img {
   width: 100%;
   height: auto;
+  max-width: 300px; /* Set a max width for consistency */
+  max-height: 200px; /* Set a max height for consistency */
   transition: transform 0.5s ease;
+}
+
+/* Individual Project Page Images */
+.project-page img {
+  width: 100%;
+  height: auto;
+  max-width: 800px; /* Increased max width */
+  margin-top: 20px; /* Add some margin for spacing */
+  border-radius: 10px; /* Optional: Add some border radius for styling */
 }
 
 .project:hover img {
@@ -181,5 +193,20 @@ button {
 }
 
 button:hover {
+  background-color: #da70d6;
+}
+
+.redirect-button {
+  padding: 10px 20px;
+  background-color: #ff69b4;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px; /* Add margin for spacing */
+}
+
+.redirect-button:hover {
   background-color: #da70d6;
 }
