@@ -4,8 +4,10 @@ import { useNavigate } from "react-router-dom";
 type Project = {
   id: number;
   title: string;
-  desc: string;
+  shortDesc: string;
+  longDesc: string;
   image: string;
+  url?: string;
 };
 
 type ProjectsProps = {
@@ -36,9 +38,14 @@ const Projects: React.FC<ProjectsProps> = ({ showButton = false }) => {
   return (
     <div id="projects" className="section">
       <h1>Projects</h1>
-      <p>This is the projects section. Showcase your work here.</p>
+      <p>
+        Below you can see two of my projects, and also, the entire website is
+        based on React and TypeScript.
+      </p>
       {showButton && (
-        <button onClick={() => navigate("/projects")}>More Projects</button>
+        <button onClick={() => navigate("/projects")}>
+          For the Projects, Click Here
+        </button>
       )}
 
       <div className="project-container">
@@ -48,9 +55,13 @@ const Projects: React.FC<ProjectsProps> = ({ showButton = false }) => {
             className="project"
             onClick={() => navigate(`/project${project.id}`)}
           >
+            <div className="project-info">
+              <h3>{project.title}</h3>
+              <p>{project.shortDesc}</p>
+            </div>
             <img src={project.image} alt={project.title} />
             <div className="overlay">
-              <div className="project-desc">{project.desc}</div>
+              <div className="project-desc">{project.shortDesc}</div>
               <div className="project-cta">Click to see my project →</div>
             </div>
           </div>

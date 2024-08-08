@@ -11,7 +11,8 @@ import "./styles.css";
 type Project = {
   id: number;
   title: string;
-  desc: string;
+  shortDesc: string;
+  longDesc: string;
   image: string;
   url?: string;
 };
@@ -47,7 +48,7 @@ const App: React.FC = () => {
             element={
               <ProjectPage
                 title={project.title}
-                desc={project.desc}
+                longDesc={project.longDesc}
                 image={project.image}
                 url={project.url}
               />

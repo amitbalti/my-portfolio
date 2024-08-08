@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 /* General Body and HTML settings */
 body,
 html {
@@ -20,6 +24,7 @@ html {
   background-color: #333;
   z-index: 1000;
   padding: 10px 0;
+  height: 50px; /* Adjust height based on your navbar */
 }
 
 .navbar ul {
@@ -28,6 +33,7 @@ html {
   margin: 0;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap; /* Allows items to wrap in case they overflow */
 }
 
 .navbar li {
@@ -55,6 +61,7 @@ html {
   justify-content: center;
   box-sizing: border-box;
   width: 100%;
+  text-align: center; /* Center text in all sections */
 }
 
 /* Remove the negative margin and adjust padding */
@@ -66,19 +73,69 @@ html {
 }
 
 #about {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Fine white line with low opacity */
-  /* margin-bottom: 50px; Optional: Adds space between the About and Projects sections */
+  border-bottom: 1px solid rgba(171, 167, 167, 0.764); /* Fine white line with low opacity */
 }
 
 #projects {
   padding-top: 50px; /* Optional: Adds padding at the top of the Projects section */
 }
 
+/* Home Page About Section */
+#about.home-page {
+  background-color: #111; /* Slightly different background color */
+  color: #ff69b4; /* Different text color */
+  padding: 50px 20px;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0px 0px 15px rgba(255, 105, 180, 0.5); /* Pink glow */
+  text-align: center; /* Ensure text is centered in home page about section */
+}
+
+/* About Page Specific Styles */
+#about.about-page p {
+  font-size: 1em; /* Smaller font size */
+  line-height: 1.4; /* Smaller line spacing */
+  color: #dda0dd; /* Light purple text color */
+}
+
+h1,
+p {
+  color: #fff;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #ff69b4;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #da70d6;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7); /* Dark overlay for better readability */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
 /* Project section */
 .project-container {
   width: 100%;
   display: flex;
-  /* margin-top: 60px; Increase space at the top of the project container */
   flex-wrap: wrap; /* Allows project items to wrap on smaller screens */
   justify-content: space-around;
   gap: 20px; /* Adds space between project items */
@@ -101,25 +158,14 @@ html {
 .project img {
   width: 100%;
   height: auto;
-  max-width: 300px; /* Set a max width for consistency */
-  max-height: 200px; /* Set a max height for consistency */
   transition: transform 0.5s ease;
-}
-
-/* Individual Project Page Images */
-.project-page img {
-  width: 100%;
-  height: auto;
-  max-width: 800px; /* Increased max width */
-  margin-top: 20px; /* Add some margin for spacing */
-  border-radius: 10px; /* Optional: Add some border radius for styling */
 }
 
 .project:hover img {
   transform: scale(1.05); /* Slight zoom on hover */
 }
 
-.overlay {
+.project-info {
   position: absolute;
   top: 0;
   left: 0;
@@ -135,6 +181,10 @@ html {
   transition: opacity 0.5s ease;
 }
 
+.project:hover .project-info {
+  opacity: 1;
+}
+
 .project:hover .overlay {
   opacity: 1;
 }
@@ -148,52 +198,31 @@ html {
   font-weight: bold;
 }
 
-/* Base styles for all projects */
+/* Individual Project Page */
 .project-page {
-  padding: 80px 20px;
+  padding: 60px 20px; /* Reduce top padding to move the content higher */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* Ensure content starts from the top */
   background-color: #222; /* Uniform dark background for all project pages */
   color: #fff;
   text-align: center;
   box-shadow: 0px 0px 10px 0px rgba(255, 105, 180, 0.7); /* Subtle pink glow for some depth */
 }
 
-/* Specific styles for Project1 */
-#project1 {
-  border: 2px solid #da70d6; /* Orchid border for Project1 */
+.project-page img {
+  width: 100%;
+  height: auto;
+  max-width: 800px; /* Increased max width */
+  margin-top: 20px; /* Add some margin for spacing */
+  border-radius: 10px; /* Optional: Add some border radius for styling */
 }
 
-/* Specific styles for Project2 */
-#project2 {
-  border: 2px solid #5c5cd6; /* Deep blue border for Project2 */
-}
-
-/* Specific styles for Project3 */
-#project3 {
-  border: 2px solid #33cc73; /* Dark green border for Project3 */
-}
-
-h1,
-p {
-  color: #fff;
-}
-
-button {
-  padding: 10px 20px;
-  background-color: #ff69b4;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: #da70d6;
+/* Description text with smaller line spacing */
+.project-desc-line {
+  margin: 5px 0; /* Adjust margin to make spacing smaller */
 }
 
 .redirect-button {
@@ -209,4 +238,37 @@ button:hover {
 
 .redirect-button:hover {
   background-color: #da70d6;
+}
+
+/* Responsive design for mobile and tablets */
+@media (max-width: 768px) {
+  .navbar ul {
+    flex-wrap: wrap; /* Allows items to wrap within the navbar */
+  }
+
+  .navbar li {
+    margin: 5px 10px; /* Adjust margin for better spacing */
+  }
+
+  .navbar a {
+    padding: 5px 10px; /* Adjust padding for better fit */
+  }
+
+  .section {
+    padding: 50px 10px;
+  }
+
+  .project-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project {
+    width: 80%;
+  }
+
+  /* Add padding to the text in the About section */
+  #about.about-page p {
+    padding: 0 15px; /* Add padding to the sides */
+  }
 }

@@ -2,14 +2,14 @@ import React from "react";
 
 type ProjectPageProps = {
   title: string;
-  desc: string;
+  longDesc: string;
   image: string;
   url?: string;
 };
 
 const ProjectPage: React.FC<ProjectPageProps> = ({
   title,
-  desc,
+  longDesc,
   image,
   url,
 }) => {
@@ -19,13 +19,19 @@ const ProjectPage: React.FC<ProjectPageProps> = ({
     }
   };
 
+  const longDescLines = longDesc.split("\n");
+
   return (
     <div className="project-page">
+      <br />
       <h1>{title}</h1>
-      <p>{desc}</p>
-      <img src={image} alt={title} />
+      <img src={image} alt={title} className="project-image" />
       <br />
-      <br />
+      {longDescLines.map((line, index) => (
+        <p key={index} className="project-desc-line">
+          {line}
+        </p>
+      ))}
       {url && (
         <button onClick={handleRedirect} className="redirect-button">
           View Project

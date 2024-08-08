@@ -3,11 +3,9 @@ import About from "./About";
 import Projects from "./Projects";
 
 const Home: React.FC = () => {
-  console.log("Home component rendered");
-
   return (
     <div>
-      <About showButton={true} />
+      <About showButton={true} isHomePage={true} />
       <Projects showButton={true} />
     </div>
   );
