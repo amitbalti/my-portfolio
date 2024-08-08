@@ -1,0 +1,19 @@
+[
+    {
+      "id": 1,
+      "title": "Task Board Project",
+      "shortDesc": "This project is used for placing tasks on task board...",
+      "longDesc": "The Task Board Project, accessible by clicking on the button below, is a JavaScript-based application utilizing HTML and CSS. \nThis project allows users to add tasks to a task board, each with a specified deadline comprising time and date. \nThe tasks are stored in the local cache, ensuring they persist across sessions on the same computer. \nUsers can manage their tasks directly within the interface, with the ability to delete tasks using the X button. \nThis ensures a simple and efficient way to keep track of and manage deadlines.",
+      "image": "/assets/taskManagerProject.png",
+      "url": "https://amitbalti.github.io/task-board-project"
+    },
+    {
+      "id": 2,
+      "title": "Cryptonite - Coins Project",
+      "shortDesc": "This project is used for choosing coins and looking at their live report...",
+      "longDesc": "The Coins Project, is a JavaScript-based application that also employs HTML, JSON, and CSS. \nThe project allows users to select up to 5 different coins to monitor. If a user attempts to select more than 5 coins, a popup window prompts them to remove one of their current selections. \nUsers can view the coin rates in USD, EURO, and ILS. Additionally, there is a 'Live Reports' tab that provides real-time updates on the coin rates, refreshing every few seconds to display the latest changes. \nThis feature-rich application offers a dynamic and interactive way to track cryptocurrency values.",
+      "image": "/assets/coinsProject.png",
+      "url":"https://amitbalti.github.io/coins-project/"
+    }
+  ]
+
