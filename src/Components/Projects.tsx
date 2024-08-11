@@ -20,7 +20,7 @@ const Projects: React.FC<ProjectsProps> = ({ showButton = false }) => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch("/projects.json")
+    fetch(`${process.env.PUBLIC_URL}/projects.json`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -59,7 +59,10 @@ const Projects: React.FC<ProjectsProps> = ({ showButton = false }) => {
               <h3>{project.title}</h3>
               <p>{project.shortDesc}</p>
             </div>
-            <img src={project.image} alt={project.title} />
+            <img
+              src={`${process.env.PUBLIC_URL}/assets/${project.image}`}
+              alt={project.title}
+            />
             <div className="overlay">
               <div className="project-desc">{project.shortDesc}</div>
               <div className="project-cta">Click to see my project →</div>

@@ -22,11 +22,20 @@ const App: React.FC = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/projects.json")
-      .then((response) => response.json())
+    fetch(`${process.env.PUBLIC_URL}/projects.json`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
       .then((data) => {
         setProjects(data);
         setLoading(false);
+      })
+      .catch((error) => {
+        console.log("Error", error);
+        setLoading(false); // Stop loading even if there's an error
       });
   }, []);
 
@@ -38,6 +47,7 @@ const App: React.FC = () => {
     <div className="App">
       <Navbar />
       <Routes>
+        <Route path="/my-portfolio" element={<Home />} />
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About showButton={false} />} />
         <Route path="/projects" element={<Projects showButton={false} />} />
@@ -49,7 +59,7 @@ const App: React.FC = () => {
               <ProjectPage
                 title={project.title}
                 longDesc={project.longDesc}
-                image={project.image}
+                image={`assets/${project.image}`}
                 url={project.url}
               />
             }

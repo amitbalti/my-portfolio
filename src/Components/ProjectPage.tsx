@@ -25,7 +25,11 @@ const ProjectPage: React.FC<ProjectPageProps> = ({
     <div className="project-page">
       <br />
       <h1>{title}</h1>
-      <img src={image} alt={title} className="project-image" />
+      <img
+        src={`${process.env.PUBLIC_URL}/${image}`}
+        alt={title}
+        className="project-image"
+      />
       <br />
       {longDescLines.map((line, index) => (
         <p key={index} className="project-desc-line">

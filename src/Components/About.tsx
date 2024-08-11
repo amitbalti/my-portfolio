@@ -47,9 +47,3 @@ const About: React.FC<AboutProps> = ({
 };
 
 export default About;
-
-// Hi, I'm Amit! I'm 26 years old and work as a front-end web developer. I have a background in full-stack development, which means I know both front-end and back-end technologies. I mostly use React and TypeScript in my daily work.
-
-// I work for an international gambling company, maintaining over 10 websites. I've been with this company for a few years and in my current development role for a bit over a year. Even though I work remotely, I communicate with more than 15 people every day, which keeps me connected and engaged.
-
-// I love working with others, learning new things, and always strive to improve myself. I believe in asking questions and constantly educating myself to stay ahead in the tech world. While my main strength is in front-end development, my full-stack knowledge helps me understand and work on various parts of web development projects. I'm always curious and committed to growing in my field.
